@@ -1,8 +1,13 @@
 {
   "version": 2,
+  "functions": {
+    "translate.js": { "runtime": "@vercel/node" },
+    "storage.js": { "runtime": "@vercel/node" }
+  },
   "routes": [
     { "src": "/api/translate", "dest": "/translate.js" },
     { "src": "/api/storage", "dest": "/storage.js" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
+
