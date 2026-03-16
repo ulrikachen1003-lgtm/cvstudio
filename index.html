@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -17,104 +16,104 @@
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;height:100vh;overflow:hidden;display:flex;flex-direction:column;}
 
 /* HEADER */
-header{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;border-bottom:1px solid var(–border);background:var(–surface);flex-shrink:0;gap:12px;}
-.logo{font-family:‘Playfair Display’,serif;font-size:17px;color:var(–accent);white-space:nowrap;}
-.logo span{color:var(–text-muted);font-style:italic;font-weight:400;}
+header{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;border-bottom:1px solid var(--border);background:var(--surface);flex-shrink:0;gap:12px;}
+.logo{font-family:'Playfair Display',serif;font-size:17px;color:var(--accent);white-space:nowrap;}
+.logo span{color:var(--text-muted);font-style:italic;font-weight:400;}
 .header-center{display:flex;align-items:center;gap:8px;flex:1;justify-content:center;}
-.hdr-input{background:var(–surface2);border:1px solid var(–border);border-radius:5px;color:var(–text);font-family:‘DM Mono’,monospace;font-size:11px;padding:5px 10px;transition:border-color .2s;}
-.hdr-input:focus{outline:none;border-color:var(–accent);}
+.hdr-input{background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--text);font-family:'DM Mono',monospace;font-size:11px;padding:5px 10px;transition:border-color .2s;}
+.hdr-input:focus{outline:none;border-color:var(--accent);}
 .hdr-input.wide{width:160px;}.hdr-input.narrow{width:110px;}
 .header-actions{display:flex;align-items:center;gap:7px;flex-shrink:0;}
-.btn{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:5px;border:none;font-family:‘DM Sans’,sans-serif;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;}
-.btn-ghost{background:transparent;color:var(–text-muted);border:1px solid var(–border);}
-.btn-ghost:hover{border-color:var(–text-muted);color:var(–text);}
-.btn-accent{background:var(–accent);color:#0e0e0f;font-weight:600;}
+.btn{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:5px;border:none;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.btn-ghost{background:transparent;color:var(--text-muted);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--text-muted);color:var(--text);}
+.btn-accent{background:var(--accent);color:#0e0e0f;font-weight:600;}
 .btn-accent:hover{filter:brightness(1.1);transform:translateY(-1px);}
-.btn-save{background:var(–success);color:#0e0e0f;font-weight:600;}
+.btn-save{background:var(--success);color:#0e0e0f;font-weight:600;}
 .btn-save:hover{filter:brightness(1.1);transform:translateY(-1px);}
 
 /* TOAST */
-.toast{display:none;position:fixed;top:62px;right:20px;background:var(–success);color:#0e0e0f;padding:7px 14px;border-radius:7px;font-size:11px;font-weight:600;z-index:999;animation:fadeUp .3s ease;}
+.toast{display:none;position:fixed;top:62px;right:20px;background:var(--success);color:#0e0e0f;padding:7px 14px;border-radius:7px;font-size:11px;font-weight:600;z-index:999;animation:fadeUp .3s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
 /* MAIN */
 .main{display:flex;flex:1;overflow:hidden;}
 
 /* SIDEBAR */
-.sidebar{width:180px;background:var(–surface);border-right:1px solid var(–border);display:flex;flex-direction:column;flex-shrink:0;transition:width .25s ease;}
+.sidebar{width:180px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;transition:width .25s ease;}
 .sidebar.collapsed{width:0;overflow:hidden;}
-.sidebar-hdr{padding:11px 12px 9px;border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.sidebar-title{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(–text-muted);}
-.arc-count{background:var(–surface2);color:var(–accent);font-family:‘DM Mono’,monospace;font-size:10px;padding:2px 6px;border-radius:8px;border:1px solid var(–border);}
+.sidebar-hdr{padding:11px 12px 9px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.sidebar-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);}
+.arc-count{background:var(--surface2);color:var(--accent);font-family:'DM Mono',monospace;font-size:10px;padding:2px 6px;border-radius:8px;border:1px solid var(--border);}
 .archive-list{flex:1;overflow-y:auto;padding:6px;}
-.sidebar-collapse-btn{background:transparent;border:none;color:var(–text-muted);cursor:pointer;padding:2px 4px;border-radius:3px;display:flex;align-items:center;transition:all .15s;}
-.sidebar-collapse-btn:hover{color:var(–text);background:var(–border);}
-.sidebar-tab{display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:28px;background:var(–surface);border-right:1px solid var(–border);cursor:pointer;flex-shrink:0;padding:12px 0;transition:background .15s;}
-.sidebar-tab:hover{background:var(–surface2);}
-.sidebar-tab span{font-family:‘DM Mono’,monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(–text-muted);writing-mode:vertical-rl;transform:rotate(180deg);}
-.sidebar-tab svg{color:var(–text-muted);}
-.arc-count-tab{background:var(–surface2);color:var(–accent);font-family:‘DM Mono’,monospace;font-size:9px;padding:2px 5px;border-radius:6px;border:1px solid var(–border);writing-mode:horizontal-tb;transform:none;}
+.sidebar-collapse-btn{background:transparent;border:none;color:var(--text-muted);cursor:pointer;padding:2px 4px;border-radius:3px;display:flex;align-items:center;transition:all .15s;}
+.sidebar-collapse-btn:hover{color:var(--text);background:var(--border);}
+.sidebar-tab{display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:28px;background:var(--surface);border-right:1px solid var(--border);cursor:pointer;flex-shrink:0;padding:12px 0;transition:background .15s;}
+.sidebar-tab:hover{background:var(--surface2);}
+.sidebar-tab span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);writing-mode:vertical-rl;transform:rotate(180deg);}
+.sidebar-tab svg{color:var(--text-muted);}
+.arc-count-tab{background:var(--surface2);color:var(--accent);font-family:'DM Mono',monospace;font-size:9px;padding:2px 5px;border-radius:6px;border:1px solid var(--border);writing-mode:horizontal-tb;transform:none;}
 .sidebar.collapsed + .editor-area{flex:1;}
 .arc-item{padding:8px 10px;border-radius:5px;cursor:pointer;border:1px solid transparent;margin-bottom:3px;transition:all .15s;}
-.arc-item:hover{background:var(–surface2);border-color:var(–border);}
-.arc-item.active{background:var(–surface2);border-color:var(–accent);}
-.arc-date{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–accent);margin-bottom:2px;}
-.arc-preview{font-size:10px;color:var(–text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.arc-item:hover{background:var(--surface2);border-color:var(--border);}
+.arc-item.active{background:var(--surface2);border-color:var(--accent);}
+.arc-date{font-family:'DM Mono',monospace;font-size:9px;color:var(--accent);margin-bottom:2px;}
+.arc-preview{font-size:10px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .arc-langs{display:flex;gap:3px;margin-top:4px;}
 .arc-dot{width:5px;height:5px;border-radius:50%;}
-.empty-arc{text-align:center;padding:32px 12px;color:var(–text-dim);font-size:11px;line-height:1.6;}
+.empty-arc{text-align:center;padding:32px 12px;color:var(--text-dim);font-size:11px;line-height:1.6;}
 .empty-arc .ic{font-size:24px;margin-bottom:6px;opacity:.4;}
 
 /* EDITOR AREA */
 .editor-area{flex:1;display:flex;flex-direction:column;overflow:hidden;}
 
 /* LANG TABS */
-.lang-tabs{display:flex;align-items:center;padding:0 16px;height:40px;border-bottom:1px solid var(–border);background:var(–surface);gap:3px;flex-shrink:0;}
-.lang-tab{display:flex;align-items:center;gap:5px;padding:4px 12px;border-radius:4px;border:1px solid transparent;cursor:pointer;font-size:11px;font-weight:500;transition:all .15s;color:var(–text-muted);}
-.lang-tab:hover{background:var(–surface2);color:var(–text);}
-.lang-tab.active{border-color:var(–border);background:var(–surface2);color:var(–text);}
-.lang-tab.active[data-lang=“en”]{border-color:var(–en);color:var(–en);}
-.lang-tab.active[data-lang=“fr”]{border-color:var(–fr);color:var(–fr);}
-.lang-tab.active[data-lang=“zh”]{border-color:var(–zh);color:var(–zh);}
-.lang-tab.active[data-lang=“ja”]{border-color:var(–ja);color:var(–ja);}
+.lang-tabs{display:flex;align-items:center;padding:0 16px;height:40px;border-bottom:1px solid var(--border);background:var(--surface);gap:3px;flex-shrink:0;}
+.lang-tab{display:flex;align-items:center;gap:5px;padding:4px 12px;border-radius:4px;border:1px solid transparent;cursor:pointer;font-size:11px;font-weight:500;transition:all .15s;color:var(--text-muted);}
+.lang-tab:hover{background:var(--surface2);color:var(--text);}
+.lang-tab.active{border-color:var(--border);background:var(--surface2);color:var(--text);}
+.lang-tab.active[data-lang="en"]{border-color:var(--en);color:var(--en);}
+.lang-tab.active[data-lang="fr"]{border-color:var(--fr);color:var(--fr);}
+.lang-tab.active[data-lang="zh"]{border-color:var(--zh);color:var(--zh);}
+.lang-tab.active[data-lang="ja"]{border-color:var(--ja);color:var(--ja);}
 .ltdot{width:6px;height:6px;border-radius:50%;}
-.lang-tab[data-lang=“en”] .ltdot{background:var(–en);}
-.lang-tab[data-lang=“fr”] .ltdot{background:var(–fr);}
-.lang-tab[data-lang=“zh”] .ltdot{background:var(–zh);}
-.lang-tab[data-lang=“ja”] .ltdot{background:var(–ja);}
-.add-lang-btn{margin-left:3px;padding:3px 9px;border-radius:4px;background:transparent;border:1px dashed var(–border);color:var(–text-dim);font-size:10px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:4px;}
-.add-lang-btn:hover{border-color:var(–text-muted);color:var(–text-muted);}
+.lang-tab[data-lang="en"] .ltdot{background:var(--en);}
+.lang-tab[data-lang="fr"] .ltdot{background:var(--fr);}
+.lang-tab[data-lang="zh"] .ltdot{background:var(--zh);}
+.lang-tab[data-lang="ja"] .ltdot{background:var(--ja);}
+.add-lang-btn{margin-left:3px;padding:3px 9px;border-radius:4px;background:transparent;border:1px dashed var(--border);color:var(--text-dim);font-size:10px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:4px;}
+.add-lang-btn:hover{border-color:var(--text-muted);color:var(--text-muted);}
 
 /* PANELS */
 .panels{flex:1;display:flex;overflow:hidden;}
-.panel{flex:1;display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(–border);}
+.panel{flex:1;display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--border);}
 .panel:last-child{border-right:none;}
-.panel-hdr{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:var(–surface2);border-bottom:1px solid var(–border);flex-shrink:0;}
+.panel-hdr{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--surface2);border-bottom:1px solid var(--border);flex-shrink:0;}
 .panel-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
 .panel-actions{display:flex;gap:5px;}
-.panel-btn{padding:3px 9px;border-radius:4px;background:var(–surface);border:1px solid var(–border);color:var(–text-muted);font-size:10px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:3px;}
-.panel-btn:hover{color:var(–text);border-color:var(–text-muted);}
+.panel-btn{padding:3px 9px;border-radius:4px;background:var(--surface);border:1px solid var(--border);color:var(--text-muted);font-size:10px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:3px;}
+.panel-btn:hover{color:var(--text);border-color:var(--text-muted);}
 .panel-wrapper{position:relative;flex:1;overflow-y:auto;background:#e8e8e4;}
 .panel-wrapper::-webkit-scrollbar{width:4px;}.panel-wrapper::-webkit-scrollbar-thumb{background:#bbb;}
 
 /* ═══════════════════════════
-CV PAPER — replicates Word
-═══════════════════════════ */
+   CV PAPER — replicates Word
+   ═══════════════════════════ */
 .cv-paper{
-width:100%;min-height:100%;background:#fff;
-padding:30px 36px 40px;
-font-family:Times New Roman,serif;
-font-size:10.5px;line-height:1.4;color:#111;
+  width:100%;min-height:100%;background:#fff;
+  padding:30px 36px 40px;
+  font-family:Times New Roman,serif;
+  font-size:10.5px;line-height:1.4;color:#111;
 }
 
 .cv-header{position:relative;text-align:center;margin-bottom:16px;min-height:70px;}
 .cv-photo{position:absolute;right:0;top:0;width:82px;height:96px;object-fit:cover;border:1px solid #ccc;}
 .cv-photo-placeholder{
-position:absolute;right:0;top:0;width:82px;height:96px;
-border:1.5px dashed #ccc;display:flex;flex-direction:column;
-align-items:center;justify-content:center;cursor:pointer;
-font-size:9px;color:#bbb;text-align:center;background:#fafafa;
-transition:all .2s;font-family:‘DM Sans’,sans-serif;
+  position:absolute;right:0;top:0;width:82px;height:96px;
+  border:1.5px dashed #ccc;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;cursor:pointer;
+  font-size:9px;color:#bbb;text-align:center;background:#fafafa;
+  transition:all .2s;font-family:'DM Sans',sans-serif;
 }
 .cv-photo-placeholder:hover{border-color:#999;color:#888;background:#f0f0f0;}
 .cv-name{font-size:15px;font-weight:700;letter-spacing:.06em;margin-bottom:4px;}
@@ -123,9 +122,9 @@ transition:all .2s;font-family:‘DM Sans’,sans-serif;
 
 .cv-section{margin-top:11px;}
 .cv-section-title{
-font-size:10.5px;font-weight:700;text-transform:uppercase;
-letter-spacing:.05em;border-bottom:1px solid #111;
-padding-bottom:2px;margin-bottom:7px;
+  font-size:10.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.05em;border-bottom:1px solid #111;
+  padding-bottom:2px;margin-bottom:7px;
 }
 .cv-entry{margin-bottom:8px;}
 .cv-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
@@ -145,45 +144,32 @@ padding-bottom:2px;margin-bottom:7px;
 
 /* overlay */
 .trans-overlay{position:absolute;inset:0;background:rgba(232,232,228,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:10;backdrop-filter:blur(3px);}
-.trans-text{font-family:‘DM Mono’,monospace;font-size:11px;color:#666;}
-.spinner{width:26px;height:26px;border:2px solid #ddd;border-top-color:var(–accent);border-radius:50%;animation:spin .8s linear infinite;}
+.trans-text{font-family:'DM Mono',monospace;font-size:11px;color:#666;}
+.spinner{width:26px;height:26px;border:2px solid #ddd;border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* STATUS BAR */
-.statusbar{height:26px;background:var(–surface);border-top:1px solid var(–border);display:flex;align-items:center;padding:0 14px;gap:18px;flex-shrink:0;}
-.st-item{display:flex;align-items:center;gap:4px;font-family:‘DM Mono’,monospace;font-size:9px;color:var(–text-dim);}
-.st-dot{width:5px;height:5px;border-radius:50%;background:var(–text-dim);}
-.st-dot.on{background:var(–success);}
+.statusbar{height:26px;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:18px;flex-shrink:0;}
+.st-item{display:flex;align-items:center;gap:4px;font-family:'DM Mono',monospace;font-size:9px;color:var(--text-dim);}
+.st-dot{width:5px;height:5px;border-radius:50%;background:var(--text-dim);}
+.st-dot.on{background:var(--success);}
 .st-ml{margin-left:auto;}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
 .modal-overlay.show{display:flex;}
-.modal{background:var(–surface);border:1px solid var(–border);border-radius:10px;padding:22px;width:320px;box-shadow:0 24px 48px rgba(0,0,0,.5);}
-.modal-title{font-family:‘Playfair Display’,serif;font-size:15px;margin-bottom:14px;}
-.lang-opt{display:flex;align-items:center;gap:10px;padding:10px;border-radius:6px;border:1px solid var(–border);margin-bottom:7px;cursor:pointer;transition:all .15s;}
-.lang-opt:hover{border-color:var(–accent);background:var(–surface2);}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px;width:320px;box-shadow:0 24px 48px rgba(0,0,0,.5);}
+.modal-title{font-family:'Playfair Display',serif;font-size:15px;margin-bottom:14px;}
+.lang-opt{display:flex;align-items:center;gap:10px;padding:10px;border-radius:6px;border:1px solid var(--border);margin-bottom:7px;cursor:pointer;transition:all .15s;}
+.lang-opt:hover{border-color:var(--accent);background:var(--surface2);}
 .lang-opt-dot{width:9px;height:9px;border-radius:50%;}
 .lang-opt-name{font-size:12px;font-weight:500;}
-.lang-opt-note{font-size:10px;color:var(–text-muted);margin-top:1px;}
-.modal-cancel{width:100%;margin-top:6px;padding:8px;background:transparent;border:1px solid var(–border);border-radius:5px;color:var(–text-muted);font-size:11px;cursor:pointer;transition:all .15s;}
-.modal-cancel:hover{border-color:var(–text-muted);color:var(–text);}
+.lang-opt-note{font-size:10px;color:var(--text-muted);margin-top:1px;}
+.modal-cancel{width:100%;margin-top:6px;padding:8px;background:transparent;border:1px solid var(--border);border-radius:5px;color:var(--text-muted);font-size:11px;cursor:pointer;transition:all .15s;}
+.modal-cancel:hover{border-color:var(--text-muted);color:var(--text);}
 
-/* SETUP MODAL */
-.setup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;align-items:center;justify-content:center;}
-.setup-overlay.show{display:flex;}
-.setup-box{background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:28px;width:360px;max-width:90vw;}
-.setup-title{font-family:‘Playfair Display’,serif;font-size:18px;color:var(–accent);margin-bottom:6px;}
-.setup-sub{font-size:12px;color:var(–text-muted);margin-bottom:20px;line-height:1.5;}
-.setup-label{font-size:10px;font-family:‘DM Mono’,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(–text-muted);margin-bottom:5px;}
-.setup-input{width:100%;background:var(–surface2);border:1px solid var(–border);border-radius:6px;color:var(–text);font-family:‘DM Mono’,monospace;font-size:11px;padding:8px 12px;margin-bottom:14px;}
-.setup-input:focus{outline:none;border-color:var(–accent);}
-.setup-save{width:100%;padding:10px;background:var(–accent);border:none;border-radius:7px;color:#0e0e0f;font-weight:700;font-size:13px;cursor:pointer;margin-top:4px;}
-.setup-save:hover{filter:brightness(1.1);}
-.setup-note{font-size:10px;color:var(–text-dim);margin-top:10px;text-align:center;line-height:1.5;}
-::-webkit-scrollbar{width:4px;height:4px;}::-webkit-scrollbar-thumb{background:var(–border);border-radius:2px;}
+::-webkit-scrollbar{width:4px;height:4px;}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 </style>
-
 </head>
 <body>
 
@@ -243,172 +229,168 @@ padding-bottom:2px;margin-bottom:7px;
       </button>
     </div>
 
-```
-<div class="panels" id="panels">
+    <div class="panels" id="panels">
 
-  <!-- ═══ EN PANEL ═══ -->
-  <div class="panel" id="panel-en">
-    <div class="panel-hdr">
-      <div class="panel-label" style="color:var(--en)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        English — Source
+      <!-- ═══ EN PANEL ═══ -->
+      <div class="panel" id="panel-en">
+        <div class="panel-hdr">
+          <div class="panel-label" style="color:var(--en)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            English — Source
+          </div>
+          <div class="panel-actions">
+            <label class="panel-btn" style="cursor:pointer" title="Upload your photo">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Upload Photo
+              <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="uploadPhoto(event)">
+            </label>
+            <button class="panel-btn" onclick="translateAll()">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+              Translate all
+            </button>
+          </div>
+        </div>
+        <div class="panel-wrapper" id="wrapper-en">
+          <div class="cv-paper" id="cv-en">
+
+            <!-- HEADER -->
+            <div class="cv-header">
+              <div class="cv-photo-placeholder" id="photoPlaceholder" onclick="document.getElementById('photoInput').click()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+              <div class="cv-name" contenteditable="true">Xiaochen CHEN</div>
+              <div class="cv-contact" contenteditable="true">+33 07 66 08 41 98 &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="344c5d555b575c515a1a575c515a7451474751571a515041">[email&#160;protected]</a> &nbsp;|&nbsp; LinkedIn: linkedin.com/in/xiaochen-chen-000645291</div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="cv-section">
+              <div class="cv-section-title">Education</div>
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">ESSEC BUSINESS SCHOOL</span><span class="cv-location" contenteditable="true">Singapore | Paris, France</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Master in Management</span><span class="cv-date" contenteditable="true">2023.9 – 2027.9 (Expected)</span></div>
+                <div class="cv-note" contenteditable="true">Student Ambassador of Master in Management</div>
+                <div class="cv-note" contenteditable="true"><b>Relevant Coursework:</b> Luxury Management, Marketing Strategy, Game Theory</div>
+              </div>
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">Shanghai Normal University</span><span class="cv-location" contenteditable="true">Shanghai, China</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Bachelor of Science in Culture Industry Management</span><span class="cv-date" contenteditable="true">2019.9 – 2023.6</span></div>
+              </div>
+            </div>
+
+            <!-- EXPERIENCE -->
+            <div class="cv-section">
+              <div class="cv-section-title">Professional Experience</div>
+
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">HERMÈS</span><span class="cv-location" contenteditable="true">Paris, France</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Stagiaire Assistante Chargée de Projet Expérience Client EME</span><span class="cv-date" contenteditable="true">2026.1 – Current</span></div>
+                <ul class="cv-bullets">
+                  <li contenteditable="true">Monitored <b>ACE Index</b> performance across markets, conducting <b>global and industry benchmarking</b> to identify service excellence improvement opportunities.</li>
+                  <li contenteditable="true">Collaborated with the Data Analyst to analyze <b>CRM KPIs (UPT, Average Basket, Top Products etc)</b> across client segments, generating insights to support Hard Luxury sales strategy.</li>
+                  <li contenteditable="true">Co-organized a <b>60-participant</b> internal seminar, contributing to program design and coordinating venue booking and material preparation to ensure smooth execution.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">CELINE</span><span class="cv-location" contenteditable="true">Paris, France</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Client Experience Assessment Assistant</span><span class="cv-date" contenteditable="true">2025.3 – 2025.9</span></div>
+                <ul class="cv-bullets">
+                  <li contenteditable="true">Led the <b>Mystery Shopping (MYS) and Voice of Client NPS (VOC NPS)</b> to monitor Global Client Experience across <b>6 regions</b> and <b>120+ stores</b> at 4 omnichannel levels (Retail, E-commerce, Remote Sales, and Seamless Store Orders).</li>
+                  <li contenteditable="true">Produced weekly, monthly and quarterly reports to track <b>KPIs</b> and support <b>Maison Excellence Strategy</b> on client experience, benchmarking against LVMH results: achieving <b>+15% in NPS</b> and <b>-50% score gap</b> with the group average.</li>
+                  <li contenteditable="true">Led cross-functional initiatives improving 5+ PIP topics (Product Presentation, X-proposition, Client Relations, etc.), achieving <b>10%+ score increases</b> across all areas in Mystery Shopping within 3 months.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">Nutricia (a subsidiary of the Danone Group)</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Healthcare Marketing Intern</span><span class="cv-date" contenteditable="true">2022.10 – 2023.3</span></div>
+                <ul class="cv-bullets">
+                  <li contenteditable="true">Conducted <b>competitor analysis</b> of <b>30+ brands</b> in sales performance, advertising strategies and pricing strategies on high-end infant formula goat milk powder in the Mainland Chinese market.</li>
+                  <li contenteditable="true">Analyzed and identified <b>consumer insight and competitive landscapes</b> to facilitate new <b>product development</b> and <b>marketing strategies</b> for infant and dairy snack market in mainland China.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">Kantar</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">APAC Procurement Intern</span><span class="cv-date" contenteditable="true">2022.7 – 2022.9</span></div>
+                <ul class="cv-bullets">
+                  <li contenteditable="true">Managed external agency partnership projects across the APAC region, involving consolidation and verification of transaction history from <b>300+ collaboration suppliers</b>.</li>
+                  <li contenteditable="true">Managed the audit and update of supplier contracts, insuring <b>supplier compliance and cost control</b> protocols across <b>7 countries</b> in APAC region.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">DIOR</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Retail Intern</span><span class="cv-date" contenteditable="true">2021.7 – 2021.12</span></div>
+                <ul class="cv-bullets">
+                  <li contenteditable="true">Analyzed <b>daily sales data in stores and customer baskets</b>, assisting store managers in statistical work, analyzing changes in fashion trends and customer preferences to adjust private regional marketing (WeChat) strategy.</li>
+                  <li contenteditable="true">Engaged in <b>CRM data management</b>, improving customer experience by providing product recommendations through <b>data analysis</b> to improve retail performance.</li>
+                  <li contenteditable="true">Assisted the store trainer to <b>teach brand knowledge</b>, conducting training for new employees in the store, SOP design, ensuring that the brand story and values are conveyed.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-row"><span class="cv-org" contenteditable="true">Accenture</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
+                <div class="cv-row"><span class="cv-role" contenteditable="true">Strategy Intern</span><span class="cv-date" contenteditable="true">2020.7 – 2020.9</span></div>
+                <ul class="cv-bullets">
+                  <li contenteditable="true">Participated in projects of diversified real estate industry, conducting research on Chinese and international recreational real estate development trends, assisting analysts in issuing 2 research decks.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="cv-section">
+              <div class="cv-section-title">Language &amp; Computer Skills</div>
+              <div class="cv-skills" contenteditable="true">
+                <b>Languages:</b> Native in Mandarin; Professional level in English (C2); French (B1); Japanese (N3)<br>
+                <b>IT Skills:</b> Advanced in Microsoft Office, PowerBI, CRM Dynamics, Salesforce, SQL, Cognos
+              </div>
+            </div>
+
+          </div><!-- /cv-en -->
+        </div>
+      </div><!-- /panel-en -->
+
+      <!-- ═══ FR PANEL ═══ -->
+      <div class="panel" id="panel-fr">
+        <div class="panel-hdr">
+          <div class="panel-label" style="color:var(--fr)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Français — AI Translated
+          </div>
+          <div class="panel-actions">
+            <button class="panel-btn" onclick="translateSingle('fr')">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+              Re-translate
+            </button>
+            <button class="panel-btn" onclick="exportPDF('fr')">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              PDF
+            </button>
+          </div>
+        </div>
+        <div class="panel-wrapper" id="wrapper-fr">
+          <div class="cv-paper" id="cv-fr" style="display:flex;align-items:center;justify-content:center;min-height:300px;">
+            <div style="text-align:center;color:#aaa;font-family:'DM Sans',sans-serif;font-size:13px;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.2" style="margin-bottom:10px;display:block;margin-left:auto;margin-right:auto"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+              Click <b style="color:#777">"Translate all"</b> to generate<br>the French version
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="panel-actions">
-        <label class="panel-btn" style="cursor:pointer" title="Upload your photo">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Upload Photo
-          <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="uploadPhoto(event)">
-        </label>
-        <button class="panel-btn" onclick="translateAll()">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
-          Translate all
-        </button>
-      </div>
+
+    </div><!-- /panels -->
+
+    <div class="statusbar">
+      <div class="st-item"><div class="st-dot on" id="stDot"></div><span id="stText">Ready</span></div>
+      <div class="st-item"><span id="lastSaved">Not saved yet</span></div>
+      <div class="st-item"><div class="st-dot" id="syncDot" style="background:var(--text-dim)"></div><span id="syncText">☁ Connecting…</span></div><div class="st-item st-ml"><span style="color:var(--text-dim)">CV Studio — powered by Claude</span></div>
     </div>
-    <div class="panel-wrapper" id="wrapper-en">
-      <div class="cv-paper" id="cv-en">
-
-        <!-- HEADER -->
-        <div class="cv-header">
-          <div class="cv-photo-placeholder" id="photoPlaceholder" onclick="document.getElementById('photoInput').click()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Add photo</span>
-          </div>
-          <div class="cv-name" contenteditable="true">Xiaochen CHEN</div>
-          <div class="cv-contact" contenteditable="true">+33 07 66 08 41 98 &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="344c5d555b575c515a1a575c515a7451474751571a515041">[email&#160;protected]</a> &nbsp;|&nbsp; LinkedIn: linkedin.com/in/xiaochen-chen-000645291</div>
-        </div>
-
-        <!-- EDUCATION -->
-        <div class="cv-section">
-          <div class="cv-section-title">Education</div>
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">ESSEC BUSINESS SCHOOL</span><span class="cv-location" contenteditable="true">Singapore | Paris, France</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Master in Management</span><span class="cv-date" contenteditable="true">2023.9 – 2027.9 (Expected)</span></div>
-            <div class="cv-note" contenteditable="true">Student Ambassador of Master in Management</div>
-            <div class="cv-note" contenteditable="true"><b>Relevant Coursework:</b> Luxury Management, Marketing Strategy, Game Theory</div>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">Shanghai Normal University</span><span class="cv-location" contenteditable="true">Shanghai, China</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Bachelor of Science in Culture Industry Management</span><span class="cv-date" contenteditable="true">2019.9 – 2023.6</span></div>
-          </div>
-        </div>
-
-        <!-- EXPERIENCE -->
-        <div class="cv-section">
-          <div class="cv-section-title">Professional Experience</div>
-
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">HERMÈS</span><span class="cv-location" contenteditable="true">Paris, France</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Stagiaire Assistante Chargée de Projet Expérience Client EME</span><span class="cv-date" contenteditable="true">2026.1 – Current</span></div>
-            <ul class="cv-bullets">
-              <li contenteditable="true">Monitored <b>ACE Index</b> performance across markets, conducting <b>global and industry benchmarking</b> to identify service excellence improvement opportunities.</li>
-              <li contenteditable="true">Collaborated with the Data Analyst to analyze <b>CRM KPIs (UPT, Average Basket, Top Products etc)</b> across client segments, generating insights to support Hard Luxury sales strategy.</li>
-              <li contenteditable="true">Co-organized a <b>60-participant</b> internal seminar, contributing to program design and coordinating venue booking and material preparation to ensure smooth execution.</li>
-            </ul>
-          </div>
-
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">CELINE</span><span class="cv-location" contenteditable="true">Paris, France</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Client Experience Assessment Assistant</span><span class="cv-date" contenteditable="true">2025.3 – 2025.9</span></div>
-            <ul class="cv-bullets">
-              <li contenteditable="true">Led the <b>Mystery Shopping (MYS) and Voice of Client NPS (VOC NPS)</b> to monitor Global Client Experience across <b>6 regions</b> and <b>120+ stores</b> at 4 omnichannel levels (Retail, E-commerce, Remote Sales, and Seamless Store Orders).</li>
-              <li contenteditable="true">Produced weekly, monthly and quarterly reports to track <b>KPIs</b> and support <b>Maison Excellence Strategy</b> on client experience, benchmarking against LVMH results: achieving <b>+15% in NPS</b> and <b>-50% score gap</b> with the group average.</li>
-              <li contenteditable="true">Led cross-functional initiatives improving 5+ PIP topics (Product Presentation, X-proposition, Client Relations, etc.), achieving <b>10%+ score increases</b> across all areas in Mystery Shopping within 3 months.</li>
-            </ul>
-          </div>
-
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">Nutricia (a subsidiary of the Danone Group)</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Healthcare Marketing Intern</span><span class="cv-date" contenteditable="true">2022.10 – 2023.3</span></div>
-            <ul class="cv-bullets">
-              <li contenteditable="true">Conducted <b>competitor analysis</b> of <b>30+ brands</b> in sales performance, advertising strategies and pricing strategies on high-end infant formula goat milk powder in the Mainland Chinese market.</li>
-              <li contenteditable="true">Analyzed and identified <b>consumer insight and competitive landscapes</b> to facilitate new <b>product development</b> and <b>marketing strategies</b> for infant and dairy snack market in mainland China.</li>
-            </ul>
-          </div>
-
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">Kantar</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">APAC Procurement Intern</span><span class="cv-date" contenteditable="true">2022.7 – 2022.9</span></div>
-            <ul class="cv-bullets">
-              <li contenteditable="true">Managed external agency partnership projects across the APAC region, involving consolidation and verification of transaction history from <b>300+ collaboration suppliers</b>.</li>
-              <li contenteditable="true">Managed the audit and update of supplier contracts, insuring <b>supplier compliance and cost control</b> protocols across <b>7 countries</b> in APAC region.</li>
-            </ul>
-          </div>
-
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">DIOR</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Retail Intern</span><span class="cv-date" contenteditable="true">2021.7 – 2021.12</span></div>
-            <ul class="cv-bullets">
-              <li contenteditable="true">Analyzed <b>daily sales data in stores and customer baskets</b>, assisting store managers in statistical work, analyzing changes in fashion trends and customer preferences to adjust private regional marketing (WeChat) strategy.</li>
-              <li contenteditable="true">Engaged in <b>CRM data management</b>, improving customer experience by providing product recommendations through <b>data analysis</b> to improve retail performance.</li>
-              <li contenteditable="true">Assisted the store trainer to <b>teach brand knowledge</b>, conducting training for new employees in the store, SOP design, ensuring that the brand story and values are conveyed.</li>
-            </ul>
-          </div>
-
-          <div class="cv-entry">
-            <div class="cv-row"><span class="cv-org" contenteditable="true">Accenture</span><span class="cv-location" contenteditable="true">Asia-Pacific</span></div>
-            <div class="cv-row"><span class="cv-role" contenteditable="true">Strategy Intern</span><span class="cv-date" contenteditable="true">2020.7 – 2020.9</span></div>
-            <ul class="cv-bullets">
-              <li contenteditable="true">Participated in projects of diversified real estate industry, conducting research on Chinese and international recreational real estate development trends, assisting analysts in issuing 2 research decks.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- SKILLS -->
-        <div class="cv-section">
-          <div class="cv-section-title">Language &amp; Computer Skills</div>
-          <div class="cv-skills" contenteditable="true">
-            <b>Languages:</b> Native in Mandarin; Professional level in English (C2); French (B1); Japanese (N3)<br>
-            <b>IT Skills:</b> Advanced in Microsoft Office, PowerBI, CRM Dynamics, Salesforce, SQL, Cognos
-          </div>
-        </div>
-
-      </div><!-- /cv-en -->
-    </div>
-  </div><!-- /panel-en -->
-
-  <!-- ═══ FR PANEL ═══ -->
-  <div class="panel" id="panel-fr">
-    <div class="panel-hdr">
-      <div class="panel-label" style="color:var(--fr)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Français — AI Translated
-      </div>
-      <div class="panel-actions">
-        <button class="panel-btn" onclick="translateSingle('fr')">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
-          Re-translate
-        </button>
-        <button class="panel-btn" onclick="exportPDF('fr')">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          PDF
-        </button>
-      </div>
-    </div>
-    <div class="panel-wrapper" id="wrapper-fr">
-      <div class="cv-paper" id="cv-fr" style="display:flex;align-items:center;justify-content:center;min-height:300px;">
-        <div style="text-align:center;color:#aaa;font-family:'DM Sans',sans-serif;font-size:13px;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.2" style="margin-bottom:10px;display:block;margin-left:auto;margin-right:auto"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
-          Click <b style="color:#777">"Translate all"</b> to generate<br>the French version
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /panels -->
-
-<div class="statusbar">
-  <div class="st-item"><div class="st-dot on" id="stDot"></div><span id="stText">Ready</span></div>
-  <div class="st-item"><span id="lastSaved">Not saved yet</span></div>
-  <div class="st-item"><div class="st-dot" id="syncDot" style="background:var(--text-dim)"></div><span id="syncText">☁ Connecting…</span></div><div class="st-item st-ml"><span style="color:var(--text-dim)">CV Studio — powered by Claude</span></div>
-</div>
-```
-
   </div>
 </div>
 
 <!-- ADD LANG MODAL -->
-
 <div class="modal-overlay" id="langModal">
   <div class="modal">
     <div class="modal-title">Add a language</div>
@@ -424,242 +406,250 @@ padding-bottom:2px;margin-bottom:7px;
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-// ── Key setup
-function showSetup() {
-  document.getElementById('setupOverlay').classList.add('show');
-}
-function saveKeys() {
-  const ak = document.getElementById('setupAnthropicKey').value.trim();
-  const jk = document.getElementById('setupJsonBinKey').value.trim();
-  if (!ak || !jk) { alert('Please enter both keys.'); return; }
-  localStorage.setItem('cvstudio_anthropic_key', ak);
-  localStorage.setItem('cvstudio_jsonbin_key', jk);
-  document.getElementById('setupOverlay').classList.remove('show');
-  loadFromStorage();
-}
-</script><script>
+<script>
+// ── API Keys (fetched from server on load)
+const KEYS = { anthropic: '', jsonbin: '' };
+function getAnthropicKey() { return KEYS.anthropic; }
+function getJsonBinKey() { return KEYS.jsonbin; }
+function keysConfigured() { return KEYS.anthropic && KEYS.jsonbin; }
 
-// ── API Keys (stored in localStorage, entered once by user)
-function getAnthropicKey() {
-return localStorage.getItem(‘cvstudio_anthropic_key’) || ‘’;
-}
-function getJsonBinKey() {
-return localStorage.getItem(‘cvstudio_jsonbin_key’) || ‘’;
-}
-function keysConfigured() {
-return getAnthropicKey() && getJsonBinKey();
-}
-
-const state = { activeLangs:[‘en’,‘fr’], archives:[], sidebarOpen:true, photoData:null };
+const state = { activeLangs:['en','fr'], archives:[], sidebarOpen:true, photoData:null };
 
 const LANG_CONFIG = {
-en: { label:‘English’, color:‘var(–en)’, prompt:null },
-fr: { label:‘Français’, color:‘var(–fr)’,
-prompt:`You are a professional French CV translator and career advisor.
+  en: { label:'English', color:'var(--en)', prompt:null },
+  fr: { label:'Français', color:'var(--fr)',
+    prompt:`You are a professional French CV translator and career advisor.
 The user provides the innerHTML of a CV (in HTML). Translate ALL visible text to French, adapted naturally for the French job market.
 Rules:
-
 - Keep ALL HTML tags, attributes, classes, structure EXACTLY the same — only translate text nodes
 - Keep company names (HERMÈS, CELINE, DIOR, Kantar, Accenture, etc.) in their original form
 - Keep metrics, numbers, percentages unchanged
-- Translate job titles naturally (e.g. “Intern” → “Stagiaire”, “Assistant” → “Assistante”)
+- Translate job titles naturally (e.g. "Intern" → "Stagiaire", "Assistant" → "Assistante")
 - Use French date conventions where appropriate
 - Make bullet points sound like a native French professional wrote them
 - Do NOT add or remove any HTML elements
-- Return ONLY the raw HTML, no markdown fences, no explanation` }, zh: { label:'中文', color:'var(--zh)', prompt:`You are a professional Chinese CV translator. Translate the CV HTML to Simplified Chinese for the Chinese job market. Keep ALL HTML structure/classes/attributes identical. Only translate text nodes. Keep company names in English. Use 年/月 date format. Return ONLY raw HTML, no markdown.` }, ja: { label:'日本語', color:'var(--ja)', prompt:`You are a professional Japanese CV translator. Translate the CV HTML to formal Japanese (keigo) for the Japanese job market. Keep ALL HTML structure/classes/attributes identical. Only translate text nodes. Keep company names in English. Use 年/月 date format. Return ONLY raw HTML, no markdown.` }
-  };
+- Return ONLY the raw HTML, no markdown fences, no explanation` },
+  zh: { label:'中文', color:'var(--zh)',
+    prompt:`You are a professional Chinese CV translator. Translate the CV HTML to Simplified Chinese for the Chinese job market. Keep ALL HTML structure/classes/attributes identical. Only translate text nodes. Keep company names in English. Use 年/月 date format. Return ONLY raw HTML, no markdown.` },
+  ja: { label:'日本語', color:'var(--ja)',
+    prompt:`You are a professional Japanese CV translator. Translate the CV HTML to formal Japanese (keigo) for the Japanese job market. Keep ALL HTML structure/classes/attributes identical. Only translate text nodes. Keep company names in English. Use 年/月 date format. Return ONLY raw HTML, no markdown.` }
+};
 
 // ── Init
-document.addEventListener(‘DOMContentLoaded’, () => {
-if (!keysConfigured()) { showSetup(); } else { loadFromStorage(); }
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('/api/config');
+    const cfg = await res.json();
+    KEYS.anthropic = cfg.anthropicKey;
+    KEYS.jsonbin = cfg.jsonbinKey;
+  } catch(e) { console.warn('Could not load config', e); }
+  loadFromStorage();
 });
 
 // ── Photo
 function uploadPhoto(e) {
-const file = e.target.files[0]; if (!file) return;
-const reader = new FileReader();
-reader.onload = ev => { state.photoData = ev.target.result; applyPhotoToAll(); saveToStorage(); };
-reader.readAsDataURL(file);
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => { state.photoData = ev.target.result; applyPhotoToAll(); saveToStorage(); };
+  reader.readAsDataURL(file);
 }
 function applyPhotoToAll() { state.activeLangs.forEach(l => applyPhoto(l)); }
 function applyPhoto(lang) {
-if (!state.photoData) return;
-const cv = document.getElementById(‘cv-’ + lang); if (!cv) return;
-const hdr = cv.querySelector(’.cv-header’); if (!hdr) return;
-hdr.querySelector(’.cv-photo-placeholder’)?.remove();
-hdr.querySelector(’.cv-photo’)?.remove();
-const img = document.createElement(‘img’);
-img.className = ‘cv-photo’; img.src = state.photoData;
-hdr.insertBefore(img, hdr.firstChild);
+  if (!state.photoData) return;
+  const cv = document.getElementById('cv-' + lang); if (!cv) return;
+  const hdr = cv.querySelector('.cv-header'); if (!hdr) return;
+  hdr.querySelector('.cv-photo-placeholder')?.remove();
+  hdr.querySelector('.cv-photo')?.remove();
+  const img = document.createElement('img');
+  img.className = 'cv-photo'; img.src = state.photoData;
+  hdr.insertBefore(img, hdr.firstChild);
 }
 
 // ── Sidebar
 function toggleSidebar() {
-state.sidebarOpen = !state.sidebarOpen;
-document.getElementById(‘sidebar’).classList.toggle(‘collapsed’, !state.sidebarOpen);
-const tab = document.getElementById(‘sidebarTab’);
-if (tab) tab.style.display = state.sidebarOpen ? ‘none’ : ‘flex’;
+  state.sidebarOpen = !state.sidebarOpen;
+  document.getElementById('sidebar').classList.toggle('collapsed', !state.sidebarOpen);
+  const tab = document.getElementById('sidebarTab');
+  if (tab) tab.style.display = state.sidebarOpen ? 'none' : 'flex';
 }
 
 // ── Tabs
 function switchTab(lang) {
-document.querySelectorAll(’.lang-tab’).forEach(t => t.classList.toggle(‘active’, t.dataset.lang === lang));
+  document.querySelectorAll('.lang-tab').forEach(t => t.classList.toggle('active', t.dataset.lang === lang));
 }
 
 // ── Add/remove lang
 function showAddLang() {
-[‘zh’,‘ja’].forEach(l => {
-const o = document.getElementById(‘opt-’+l);
-if (o) o.style.display = state.activeLangs.includes(l) ? ‘none’ : ‘flex’;
-});
-document.getElementById(‘langModal’).classList.add(‘show’);
+  ['zh','ja'].forEach(l => {
+    const o = document.getElementById('opt-'+l);
+    if (o) o.style.display = state.activeLangs.includes(l) ? 'none' : 'flex';
+  });
+  document.getElementById('langModal').classList.add('show');
 }
-function hideLangModal() { document.getElementById(‘langModal’).classList.remove(‘show’); }
+function hideLangModal() { document.getElementById('langModal').classList.remove('show'); }
 
 function addLang(lang, silent=false) {
-if (state.activeLangs.includes(lang)) { hideLangModal(); return; }
-state.activeLangs.push(lang);
-hideLangModal();
-const cfg = LANG_CONFIG[lang];
-// Tab
-const tabs = document.getElementById(‘langTabs’);
-const addBtn = tabs.querySelector(’.add-lang-btn’);
-const tab = document.createElement(‘div’);
-tab.className = ‘lang-tab’; tab.dataset.lang = lang;
-tab.innerHTML = `<div class="ltdot"></div>${cfg.label}`;
-tab.onclick = () => switchTab(lang);
-tabs.insertBefore(tab, addBtn);
-// Panel
-const panels = document.getElementById(‘panels’);
-const panel = document.createElement(‘div’);
-panel.className = ‘panel’; panel.id = ‘panel-’+lang;
-panel.innerHTML = ` <div class="panel-hdr"> <div class="panel-label" style="color:${cfg.color}"> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> ${cfg.label} — AI Translated </div> <div class="panel-actions"> <button class="panel-btn" onclick="translateSingle('${lang}')">Re-translate</button> <button class="panel-btn" onclick="exportPDF('${lang}')">PDF</button> <button class="panel-btn" style="color:var(--danger)" onclick="removeLang('${lang}')">✕</button> </div> </div> <div class="panel-wrapper" id="wrapper-${lang}"> <div class="cv-paper" id="cv-${lang}" style="display:flex;align-items:center;justify-content:center;min-height:300px;"> <div style="text-align:center;color:#aaa;font-family:'DM Sans',sans-serif;font-size:12px;">Click Re-translate to generate</div> </div> </div>`;
-panels.appendChild(panel);
-if (!silent) translateSingle(lang);
+  if (state.activeLangs.includes(lang)) { hideLangModal(); return; }
+  state.activeLangs.push(lang);
+  hideLangModal();
+  const cfg = LANG_CONFIG[lang];
+  // Tab
+  const tabs = document.getElementById('langTabs');
+  const addBtn = tabs.querySelector('.add-lang-btn');
+  const tab = document.createElement('div');
+  tab.className = 'lang-tab'; tab.dataset.lang = lang;
+  tab.innerHTML = `<div class="ltdot"></div>${cfg.label}`;
+  tab.onclick = () => switchTab(lang);
+  tabs.insertBefore(tab, addBtn);
+  // Panel
+  const panels = document.getElementById('panels');
+  const panel = document.createElement('div');
+  panel.className = 'panel'; panel.id = 'panel-'+lang;
+  panel.innerHTML = `
+    <div class="panel-hdr">
+      <div class="panel-label" style="color:${cfg.color}">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        ${cfg.label} — AI Translated
+      </div>
+      <div class="panel-actions">
+        <button class="panel-btn" onclick="translateSingle('${lang}')">Re-translate</button>
+        <button class="panel-btn" onclick="exportPDF('${lang}')">PDF</button>
+        <button class="panel-btn" style="color:var(--danger)" onclick="removeLang('${lang}')">✕</button>
+      </div>
+    </div>
+    <div class="panel-wrapper" id="wrapper-${lang}">
+      <div class="cv-paper" id="cv-${lang}" style="display:flex;align-items:center;justify-content:center;min-height:300px;">
+        <div style="text-align:center;color:#aaa;font-family:'DM Sans',sans-serif;font-size:12px;">Click Re-translate to generate</div>
+      </div>
+    </div>`;
+  panels.appendChild(panel);
+  if (!silent) translateSingle(lang);
 }
 
 function removeLang(lang) {
-state.activeLangs = state.activeLangs.filter(l => l !== lang);
-document.querySelector(`.lang-tab[data-lang="${lang}"]`)?.remove();
-document.getElementById(‘panel-’+lang)?.remove();
-saveToStorage();
+  state.activeLangs = state.activeLangs.filter(l => l !== lang);
+  document.querySelector(`.lang-tab[data-lang="${lang}"]`)?.remove();
+  document.getElementById('panel-'+lang)?.remove();
+  saveToStorage();
 }
 
 // ── Translation
 async function translateSingle(targetLang) {
-const sourceEl = document.getElementById(‘cv-en’);
-if (!sourceEl) return;
-const sourceHTML = sourceEl.innerHTML;
+  const sourceEl = document.getElementById('cv-en');
+  if (!sourceEl) return;
+  const sourceHTML = sourceEl.innerHTML;
 
-const wrapper = document.getElementById(‘wrapper-’+targetLang);
-const overlay = document.createElement(‘div’);
-overlay.className = ‘trans-overlay’;
-overlay.innerHTML = `<div class="spinner"></div><div class="trans-text">Translating to ${LANG_CONFIG[targetLang].label}…</div>`;
-wrapper.appendChild(overlay);
-setStatus(‘Translating…’, false);
+  const wrapper = document.getElementById('wrapper-'+targetLang);
+  const overlay = document.createElement('div');
+  overlay.className = 'trans-overlay';
+  overlay.innerHTML = `<div class="spinner"></div><div class="trans-text">Translating to ${LANG_CONFIG[targetLang].label}…</div>`;
+  wrapper.appendChild(overlay);
+  setStatus('Translating…', false);
 
-try {
-const res = await fetch(“https://api.anthropic.com/v1/messages”, {
-method:“POST”,
-headers:{
-“Content-Type”:“application/json”,
-“x-api-key”: getAnthropicKey(),
-“anthropic-version”:“2023-06-01”,
-“anthropic-dangerous-direct-browser-access”:“true”
-},
-body: JSON.stringify({
-model:“claude-sonnet-4-20250514”,
-max_tokens:4000,
-system: LANG_CONFIG[targetLang].prompt,
-messages:[{role:“user”, content:“Translate this CV HTML:\n\n”+sourceHTML}]
-})
-});
-const data = await res.json();
-let html = data.content?.map(b => b.text||’’).join(’’) || ‘’;
-html = html.replace(/^`[\w]*\n?/,"").replace(/\n?`$/,””).trim();
-const cvEl = document.getElementById(‘cv-’+targetLang);
-if (cvEl) { cvEl.style = ‘’; cvEl.innerHTML = html; applyPhoto(targetLang); }
-setStatus(‘Translation complete ✓’, true);
-} catch(err) {
-const cvEl = document.getElementById(‘cv-’+targetLang);
-if (cvEl) cvEl.innerHTML = `<div style="padding:20px;color:#c00;font-family:sans-serif;font-size:12px">Error: ${err.message}</div>`;
-setStatus(‘Translation failed’, false);
-} finally {
-overlay.remove();
-saveToStorage();
-}
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "x-api-key": getAnthropicKey(),
+        "anthropic-version":"2023-06-01",
+        "anthropic-dangerous-direct-browser-access":"true"
+      },
+      body: JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:4000,
+        system: LANG_CONFIG[targetLang].prompt,
+        messages:[{role:"user", content:"Translate this CV HTML:\n\n"+sourceHTML}]
+      })
+    });
+    const data = await res.json();
+    let html = data.content?.map(b => b.text||'').join('') || '';
+    html = html.replace(/^```[\w]*\n?/,"").replace(/\n?```$/,"").trim();
+    const cvEl = document.getElementById('cv-'+targetLang);
+    if (cvEl) { cvEl.style = ''; cvEl.innerHTML = html; applyPhoto(targetLang); }
+    setStatus('Translation complete ✓', true);
+  } catch(err) {
+    const cvEl = document.getElementById('cv-'+targetLang);
+    if (cvEl) cvEl.innerHTML = `<div style="padding:20px;color:#c00;font-family:sans-serif;font-size:12px">Error: ${err.message}</div>`;
+    setStatus('Translation failed', false);
+  } finally {
+    overlay.remove();
+    saveToStorage();
+  }
 }
 
 async function translateAll() {
-for (const lang of state.activeLangs.filter(l => l !== ‘en’)) {
-await translateSingle(lang);
-}
+  for (const lang of state.activeLangs.filter(l => l !== 'en')) {
+    await translateSingle(lang);
+  }
 }
 
 // ── Save & Archive
 function saveAndArchive() {
-const ts = new Date();
-const name = document.getElementById(‘personName’).value || ‘Resume’;
-const tag = document.getElementById(‘docTag’).value || ‘’;
-const snap = { id:Date.now(), timestamp:ts.toISOString(), name, tag, content:{} };
-state.activeLangs.forEach(lang => {
-const el = document.getElementById(‘cv-’+lang);
-if (el) snap.content[lang] = el.innerHTML;
-});
-state.archives.unshift(snap);
-if (state.archives.length > 40) state.archives.pop();
-renderArchives(); saveToStorage();
-const toast = document.getElementById(‘toast’);
-toast.style.display = ‘block’;
-setTimeout(() => toast.style.display=‘none’, 2500);
-document.getElementById(‘lastSaved’).textContent = `Saved ${ts.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit'})}`;
-setStatus(‘Saved & archived ✓’, true);
+  const ts = new Date();
+  const name = document.getElementById('personName').value || 'Resume';
+  const tag = document.getElementById('docTag').value || '';
+  const snap = { id:Date.now(), timestamp:ts.toISOString(), name, tag, content:{} };
+  state.activeLangs.forEach(lang => {
+    const el = document.getElementById('cv-'+lang);
+    if (el) snap.content[lang] = el.innerHTML;
+  });
+  state.archives.unshift(snap);
+  if (state.archives.length > 40) state.archives.pop();
+  renderArchives(); saveToStorage();
+  const toast = document.getElementById('toast');
+  toast.style.display = 'block';
+  setTimeout(() => toast.style.display='none', 2500);
+  document.getElementById('lastSaved').textContent = `Saved ${ts.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit'})}`;
+  setStatus('Saved & archived ✓', true);
 }
 
 function renderArchives() {
-const list = document.getElementById(‘archiveList’);
-document.getElementById(‘arcCount’).textContent = state.archives.length;
-const tab = document.getElementById(‘arcCountTab’);
-if (tab) tab.textContent = state.archives.length;
-if (!state.archives.length) {
-list.innerHTML = `<div class="empty-arc"><div class="ic">📂</div>No archives yet.<br>Save to start tracking.</div>`;
-return;
-}
-list.innerHTML = state.archives.map((a,i) => {
-const d = new Date(a.timestamp);
-const ds = d.toLocaleDateString(‘en’,{month:‘short’,day:‘numeric’})+’ ‘+d.toLocaleTimeString(‘en’,{hour:‘2-digit’,minute:‘2-digit’});
-const dots = Object.keys(a.content).map(l=>`<div class="arc-dot" style="background:${LANG_CONFIG[l]?.color||'#888'}"></div>`).join(’’);
-return `<div class="arc-item ${i===0?'active':''}" onclick="restoreArchive(${i})"> <div class="arc-date">${ds}</div> <div class="arc-preview">${a.name}${a.tag?' · '+a.tag:''}</div> <div class="arc-langs">${dots}</div> </div>`;
-}).join(’’);
+  const list = document.getElementById('archiveList');
+  document.getElementById('arcCount').textContent = state.archives.length;
+  const tab = document.getElementById('arcCountTab');
+  if (tab) tab.textContent = state.archives.length;
+  if (!state.archives.length) {
+    list.innerHTML = `<div class="empty-arc"><div class="ic">📂</div>No archives yet.<br>Save to start tracking.</div>`;
+    return;
+  }
+  list.innerHTML = state.archives.map((a,i) => {
+    const d = new Date(a.timestamp);
+    const ds = d.toLocaleDateString('en',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit'});
+    const dots = Object.keys(a.content).map(l=>`<div class="arc-dot" style="background:${LANG_CONFIG[l]?.color||'#888'}"></div>`).join('');
+    return `<div class="arc-item ${i===0?'active':''}" onclick="restoreArchive(${i})">
+      <div class="arc-date">${ds}</div>
+      <div class="arc-preview">${a.name}${a.tag?' · '+a.tag:''}</div>
+      <div class="arc-langs">${dots}</div>
+    </div>`;
+  }).join('');
 }
 
 function restoreArchive(idx) {
-const a = state.archives[idx];
-if (!confirm(`Restore version from ${new Date(a.timestamp).toLocaleString()}?`)) return;
-Object.entries(a.content).forEach(([lang, html]) => {
-let el = document.getElementById(‘cv-’+lang);
-if (el) { el.style=’’; el.innerHTML=html; applyPhoto(lang); }
-else if (lang !== ‘en’) {
-addLang(lang, true);
-setTimeout(() => { let el2=document.getElementById(‘cv-’+lang); if(el2){el2.style=’’;el2.innerHTML=html;applyPhoto(lang);} }, 300);
-}
-});
-document.querySelectorAll(’.arc-item’).forEach((el,i) => el.classList.toggle(‘active’, i===idx));
-setStatus(‘Version restored ✓’, true);
+  const a = state.archives[idx];
+  if (!confirm(`Restore version from ${new Date(a.timestamp).toLocaleString()}?`)) return;
+  Object.entries(a.content).forEach(([lang, html]) => {
+    let el = document.getElementById('cv-'+lang);
+    if (el) { el.style=''; el.innerHTML=html; applyPhoto(lang); }
+    else if (lang !== 'en') {
+      addLang(lang, true);
+      setTimeout(() => { let el2=document.getElementById('cv-'+lang); if(el2){el2.style='';el2.innerHTML=html;applyPhoto(lang);} }, 300);
+    }
+  });
+  document.querySelectorAll('.arc-item').forEach((el,i) => el.classList.toggle('active', i===idx));
+  setStatus('Version restored ✓', true);
 }
 
 // ── PDF Export (browser print dialog)
 function exportPDF(lang) {
-const cvEl = document.getElementById(‘cv-’+lang);
-if (!cvEl || cvEl.querySelector(’[style*=“min-height:300px”]’)) { alert(‘No content to export yet.’); return; }
-const name = document.getElementById(‘personName’).value || ‘Resume’;
-const tag = document.getElementById(‘docTag’).value || ‘’;
-const filename = `${name}${tag?'_'+tag:''}_${lang.toUpperCase()}`;
+  const cvEl = document.getElementById('cv-'+lang);
+  if (!cvEl || cvEl.querySelector('[style*="min-height:300px"]')) { alert('No content to export yet.'); return; }
+  const name = document.getElementById('personName').value || 'Resume';
+  const tag = document.getElementById('docTag').value || '';
+  const filename = `${name}${tag?'_'+tag:''}_${lang.toUpperCase()}`;
 
-const w = window.open(’’,’_blank’);
-w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${filename}</title>
-
+  const w = window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${filename}</title>
   <style>
     @page{margin:0;size:A4;}
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -682,174 +672,129 @@ w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${file
     .cv-bullets{margin-top:3px;padding-left:18px;}
     .cv-bullets li{font-size:10px;margin-bottom:2.5px;line-height:1.45;}
     .cv-skills{font-size:10px;line-height:1.7;}
-  </style></head><body>${cvEl.innerHTML}
-
-<!-- SETUP MODAL -->
-
-<div class="setup-overlay" id="setupOverlay">
-  <div class="setup-box">
-    <div class="setup-title">Welcome to CV Studio</div>
-    <div class="setup-sub">Enter your API keys once — they're stored only in your browser, never on any server.</div>
-    <div class="setup-label">Anthropic API Key</div>
-    <input class="setup-input" id="setupAnthropicKey" type="password" placeholder="sk-ant-api03-..." />
-    <div class="setup-label">JSONBin Master Key</div>
-    <input class="setup-input" id="setupJsonBinKey" type="password" placeholder="$2a$10$..." />
-    <button class="setup-save" onclick="saveKeys()">Save & Start</button>
-    <div class="setup-note">Keys are saved in your browser's localStorage.<br>You'll need to enter them once per device.</div>
-  </div>
-</div>
-</body></html>`);
+  </style></head><body>${cvEl.innerHTML}</body></html>`);
   w.document.close();
   setTimeout(() => { w.focus(); w.print(); }, 600);
   setStatus(`Exporting ${filename}…`, true);
 }
 
 function exportAllPDFs() {
-state.activeLangs.forEach((lang,i) => setTimeout(() => exportPDF(lang), i*800));
+  state.activeLangs.forEach((lang,i) => setTimeout(() => exportPDF(lang), i*800));
 }
 
 // ── Storage
 // ── Cloud Storage via /api/storage (keys hidden server-side)
-let binId = localStorage.getItem(‘cvstudio_binid’) || null;
+let binId = localStorage.getItem('cvstudio_binid') || null;
 
 function buildPayload() {
-const content = {};
-state.activeLangs.forEach(lang => {
-const el = document.getElementById(‘cv-’+lang);
-if (el) content[lang] = el.innerHTML;
-});
-return {
-content,
-archives: state.archives,
-name: document.getElementById(‘personName’).value,
-tag: document.getElementById(‘docTag’).value,
-langs: state.activeLangs,
-photo: state.photoData
-};
+  const content = {};
+  state.activeLangs.forEach(lang => {
+    const el = document.getElementById('cv-'+lang);
+    if (el) content[lang] = el.innerHTML;
+  });
+  return {
+    content,
+    archives: state.archives,
+    name: document.getElementById('personName').value,
+    tag: document.getElementById('docTag').value,
+    langs: state.activeLangs,
+    photo: state.photoData
+  };
 }
 
 async function saveToStorage() {
-const payload = buildPayload();
-// Local backup (no photo to save space)
-try {
-localStorage.setItem(‘cvstudio_v2’, JSON.stringify({…payload, photo:null, archives:state.archives.map(a=>({…a,photo:null}))}));
-} catch(e) {}
-// Cloud save via JSONBin
-const JKEY = getJsonBinKey();
-const JURL = ‘https://api.jsonbin.io/v3/b’;
-try {
-if (!binId) {
-const res = await fetch(JURL, {
-method: ‘POST’,
-headers: {‘Content-Type’:‘application/json’,‘X-Master-Key’:JKEY,‘X-Bin-Name’:‘CVStudio’,‘X-Bin-Private’:‘true’},
-body: JSON.stringify(payload)
-});
-const data = await res.json();
-binId = data.metadata?.id;
-if (binId) localStorage.setItem(‘cvstudio_binid’, binId);
-} else {
-await fetch(`${JURL}/${binId}`, {
-method: ‘PUT’,
-headers: {‘Content-Type’:‘application/json’,‘X-Master-Key’:JKEY},
-body: JSON.stringify(payload)
-});
-}
-setSyncStatus(true);
-} catch(e) {
-setSyncStatus(false);
-console.warn(‘Cloud sync failed:’, e);
-}
+  const payload = buildPayload();
+  // Local backup (no photo to save space)
+  try {
+    localStorage.setItem('cvstudio_v2', JSON.stringify({...payload, photo:null, archives:state.archives.map(a=>({...a,photo:null}))}));
+  } catch(e) {}
+  // Cloud save via JSONBin
+  const JKEY = getJsonBinKey();
+  const JURL = 'https://api.jsonbin.io/v3/b';
+  try {
+    if (!binId) {
+      const res = await fetch(JURL, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','X-Master-Key':JKEY,'X-Bin-Name':'CVStudio','X-Bin-Private':'true'},
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      binId = data.metadata?.id;
+      if (binId) localStorage.setItem('cvstudio_binid', binId);
+    } else {
+      await fetch(`${JURL}/${binId}`, {
+        method: 'PUT',
+        headers: {'Content-Type':'application/json','X-Master-Key':JKEY},
+        body: JSON.stringify(payload)
+      });
+    }
+    setSyncStatus(true);
+  } catch(e) {
+    setSyncStatus(false);
+    console.warn('Cloud sync failed:', e);
+  }
 }
 
 async function loadFromStorage() {
-setStatus(‘Loading…’, false);
-if (binId) {
-const JKEY2 = getJsonBinKey();
-try {
-const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, { headers: {‘X-Master-Key’:JKEY2} });
-const data = await res.json();
-if (data.record) {
-applyData(data.record);
-setStatus(‘Ready’, true);
-setSyncStatus(true);
-return;
-}
-} catch(e) { console.warn(‘Cloud load failed, using local’, e); }
-}
-// Fallback to localStorage
-try {
-const saved = localStorage.getItem(‘cvstudio_v2’);
-if (saved) applyData(JSON.parse(saved));
-} catch(e) {}
-setStatus(‘Ready’, true);
+  setStatus('Loading…', false);
+  if (binId) {
+    const JKEY2 = getJsonBinKey();
+    try {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, { headers: {'X-Master-Key':JKEY2} });
+      const data = await res.json();
+      if (data.record) {
+        applyData(data.record);
+        setStatus('Ready', true);
+        setSyncStatus(true);
+        return;
+      }
+    } catch(e) { console.warn('Cloud load failed, using local', e); }
+  }
+  // Fallback to localStorage
+  try {
+    const saved = localStorage.getItem('cvstudio_v2');
+    if (saved) applyData(JSON.parse(saved));
+  } catch(e) {}
+  setStatus('Ready', true);
 }
 
 function applyData(data) {
-if (data.name) document.getElementById(‘personName’).value = data.name;
-if (data.tag) document.getElementById(‘docTag’).value = data.tag;
-if (data.photo) { state.photoData = data.photo; applyPhotoToAll(); }
-if (data.langs) data.langs.forEach(l => { if (!state.activeLangs.includes(l)) addLang(l, true); });
-if (data.content) {
-Object.entries(data.content).forEach(([lang, html]) => {
-const el = document.getElementById(‘cv-’+lang);
-if (el) { el.style=’’; el.innerHTML=html; applyPhoto(lang); }
-});
-}
-if (data.archives) { state.archives = data.archives; renderArchives(); }
+  if (data.name) document.getElementById('personName').value = data.name;
+  if (data.tag) document.getElementById('docTag').value = data.tag;
+  if (data.photo) { state.photoData = data.photo; applyPhotoToAll(); }
+  if (data.langs) data.langs.forEach(l => { if (!state.activeLangs.includes(l)) addLang(l, true); });
+  if (data.content) {
+    Object.entries(data.content).forEach(([lang, html]) => {
+      const el = document.getElementById('cv-'+lang);
+      if (el) { el.style=''; el.innerHTML=html; applyPhoto(lang); }
+    });
+  }
+  if (data.archives) { state.archives = data.archives; renderArchives(); }
 }
 
 function setStatus(text, ok) {
-document.getElementById(‘stText’).textContent = text;
-document.getElementById(‘stDot’).classList.toggle(‘on’, ok);
+  document.getElementById('stText').textContent = text;
+  document.getElementById('stDot').classList.toggle('on', ok);
 }
 
 function setSyncStatus(ok) {
-const dot = document.getElementById(‘syncDot’);
-const txt = document.getElementById(‘syncText’);
-if (dot) dot.style.background = ok ? ‘var(–success)’ : ‘var(–danger)’;
-if (txt) txt.textContent = ok ? ‘☁ Synced’ : ‘☁ Offline’;
+  const dot = document.getElementById('syncDot');
+  const txt = document.getElementById('syncText');
+  if (dot) dot.style.background = ok ? 'var(--success)' : 'var(--danger)';
+  if (txt) txt.textContent = ok ? '☁ Synced' : '☁ Offline';
 }
 
 // Auto-save (debounced)
 let autoTimer;
-document.addEventListener(‘input’, e => {
-if (e.target.closest(’.cv-paper’)) {
-clearTimeout(autoTimer);
-autoTimer = setTimeout(() => {
-saveToStorage();
-document.getElementById(‘lastSaved’).textContent = ‘Auto-saved’;
-}, 1500);
-}
+document.addEventListener('input', e => {
+  if (e.target.closest('.cv-paper')) {
+    clearTimeout(autoTimer);
+    autoTimer = setTimeout(() => {
+      saveToStorage();
+      document.getElementById('lastSaved').textContent = 'Auto-saved';
+    }, 1500);
+  }
 });
 
-// ── Key setup
-function showSetup() {
-document.getElementById(‘setupOverlay’).classList.add(‘show’);
-}
-function saveKeys() {
-const ak = document.getElementById(‘setupAnthropicKey’).value.trim();
-const jk = document.getElementById(‘setupJsonBinKey’).value.trim();
-if (!ak || !jk) { alert(‘Please enter both keys.’); return; }
-localStorage.setItem(‘cvstudio_anthropic_key’, ak);
-localStorage.setItem(‘cvstudio_jsonbin_key’, jk);
-document.getElementById(‘setupOverlay’).classList.remove(‘show’);
-loadFromStorage();
-}
-</script>
-
-<!-- SETUP MODAL -->
-
-<div class="setup-overlay" id="setupOverlay">
-  <div class="setup-box">
-    <div class="setup-title">Welcome to CV Studio</div>
-    <div class="setup-sub">Enter your API keys once — they're stored only in your browser, never on any server.</div>
-    <div class="setup-label">Anthropic API Key</div>
-    <input class="setup-input" id="setupAnthropicKey" type="password" placeholder="sk-ant-api03-..." />
-    <div class="setup-label">JSONBin Master Key</div>
-    <input class="setup-input" id="setupJsonBinKey" type="password" placeholder="$2a$10$..." />
-    <button class="setup-save" onclick="saveKeys()">Save & Start</button>
-    <div class="setup-note">Keys are saved in your browser's localStorage.<br>You'll need to enter them once per device.</div>
-  </div>
-</div>
 </body>
 </html>
