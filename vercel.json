@@ -1,9 +1,8 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/api/translate", "dest": "/api/translate.js" },
-    { "src": "/api/storage", "dest": "/api/storage.js" },
+    { "src": "/api/translate", "dest": "/translate.js" },
+    { "src": "/api/storage", "dest": "/storage.js" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
-
