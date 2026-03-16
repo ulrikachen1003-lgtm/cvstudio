@@ -6,8 +6,7 @@
   },
   "routes": [
     { "src": "/api/translate", "dest": "/translate.js" },
-    { "src": "/api/storage", "dest": "/storage.js" },
+    { "src": "/api/storage(.*)", "dest": "/storage.js$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
-
