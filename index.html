@@ -169,6 +169,18 @@ padding-bottom:2px;margin-bottom:7px;
 .modal-cancel{width:100%;margin-top:6px;padding:8px;background:transparent;border:1px solid var(–border);border-radius:5px;color:var(–text-muted);font-size:11px;cursor:pointer;transition:all .15s;}
 .modal-cancel:hover{border-color:var(–text-muted);color:var(–text);}
 
+/* SETUP MODAL */
+.setup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;align-items:center;justify-content:center;}
+.setup-overlay.show{display:flex;}
+.setup-box{background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:28px;width:360px;max-width:90vw;}
+.setup-title{font-family:‘Playfair Display’,serif;font-size:18px;color:var(–accent);margin-bottom:6px;}
+.setup-sub{font-size:12px;color:var(–text-muted);margin-bottom:20px;line-height:1.5;}
+.setup-label{font-size:10px;font-family:‘DM Mono’,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(–text-muted);margin-bottom:5px;}
+.setup-input{width:100%;background:var(–surface2);border:1px solid var(–border);border-radius:6px;color:var(–text);font-family:‘DM Mono’,monospace;font-size:11px;padding:8px 12px;margin-bottom:14px;}
+.setup-input:focus{outline:none;border-color:var(–accent);}
+.setup-save{width:100%;padding:10px;background:var(–accent);border:none;border-radius:7px;color:#0e0e0f;font-weight:700;font-size:13px;cursor:pointer;margin-top:4px;}
+.setup-save:hover{filter:brightness(1.1);}
+.setup-note{font-size:10px;color:var(–text-dim);margin-top:10px;text-align:center;line-height:1.5;}
 ::-webkit-scrollbar{width:4px;height:4px;}::-webkit-scrollbar-thumb{background:var(–border);border-radius:2px;}
 </style>
 
@@ -412,7 +424,32 @@ padding-bottom:2px;margin-bottom:7px;
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// ── Key setup
+function showSetup() {
+  document.getElementById('setupOverlay').classList.add('show');
+}
+function saveKeys() {
+  const ak = document.getElementById('setupAnthropicKey').value.trim();
+  const jk = document.getElementById('setupJsonBinKey').value.trim();
+  if (!ak || !jk) { alert('Please enter both keys.'); return; }
+  localStorage.setItem('cvstudio_anthropic_key', ak);
+  localStorage.setItem('cvstudio_jsonbin_key', jk);
+  document.getElementById('setupOverlay').classList.remove('show');
+  loadFromStorage();
+}
+</script><script>
+
+// ── API Keys (stored in localStorage, entered once by user)
+function getAnthropicKey() {
+return localStorage.getItem(‘cvstudio_anthropic_key’) || ‘’;
+}
+function getJsonBinKey() {
+return localStorage.getItem(‘cvstudio_jsonbin_key’) || ‘’;
+}
+function keysConfigured() {
+return getAnthropicKey() && getJsonBinKey();
+}
 
 const state = { activeLangs:[‘en’,‘fr’], archives:[], sidebarOpen:true, photoData:null };
 
@@ -434,7 +471,9 @@ Rules:
   };
 
 // ── Init
-document.addEventListener(‘DOMContentLoaded’, loadFromStorage);
+document.addEventListener(‘DOMContentLoaded’, () => {
+if (!keysConfigured()) { showSetup(); } else { loadFromStorage(); }
+});
 
 // ── Photo
 function uploadPhoto(e) {
@@ -521,17 +560,23 @@ wrapper.appendChild(overlay);
 setStatus(‘Translating…’, false);
 
 try {
-const res = await fetch(”/api/translate”, {
+const res = await fetch(“https://api.anthropic.com/v1/messages”, {
 method:“POST”,
-headers:{“Content-Type”:“application/json”},
+headers:{
+“Content-Type”:“application/json”,
+“x-api-key”: getAnthropicKey(),
+“anthropic-version”:“2023-06-01”,
+“anthropic-dangerous-direct-browser-access”:“true”
+},
 body: JSON.stringify({
-targetLang,
-sourceHTML,
-prompt: LANG_CONFIG[targetLang].prompt
+model:“claude-sonnet-4-20250514”,
+max_tokens:4000,
+system: LANG_CONFIG[targetLang].prompt,
+messages:[{role:“user”, content:“Translate this CV HTML:\n\n”+sourceHTML}]
 })
 });
 const data = await res.json();
-let html = data.result || “”;
+let html = data.content?.map(b => b.text||’’).join(’’) || ‘’;
 html = html.replace(/^`[\w]*\n?/,"").replace(/\n?`$/,””).trim();
 const cvEl = document.getElementById(‘cv-’+targetLang);
 if (cvEl) { cvEl.style = ‘’; cvEl.innerHTML = html; applyPhoto(targetLang); }
@@ -637,11 +682,26 @@ w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${file
     .cv-bullets{margin-top:3px;padding-left:18px;}
     .cv-bullets li{font-size:10px;margin-bottom:2.5px;line-height:1.45;}
     .cv-skills{font-size:10px;line-height:1.7;}
-  </style></head><body>${cvEl.innerHTML}</body></html>`);
+  </style></head><body>${cvEl.innerHTML}
 
-w.document.close();
-setTimeout(() => { w.focus(); w.print(); }, 600);
-setStatus(`Exporting ${filename}…`, true);
+<!-- SETUP MODAL -->
+
+<div class="setup-overlay" id="setupOverlay">
+  <div class="setup-box">
+    <div class="setup-title">Welcome to CV Studio</div>
+    <div class="setup-sub">Enter your API keys once — they're stored only in your browser, never on any server.</div>
+    <div class="setup-label">Anthropic API Key</div>
+    <input class="setup-input" id="setupAnthropicKey" type="password" placeholder="sk-ant-api03-..." />
+    <div class="setup-label">JSONBin Master Key</div>
+    <input class="setup-input" id="setupJsonBinKey" type="password" placeholder="$2a$10$..." />
+    <button class="setup-save" onclick="saveKeys()">Save & Start</button>
+    <div class="setup-note">Keys are saved in your browser's localStorage.<br>You'll need to enter them once per device.</div>
+  </div>
+</div>
+</body></html>`);
+  w.document.close();
+  setTimeout(() => { w.focus(); w.print(); }, 600);
+  setStatus(`Exporting ${filename}…`, true);
 }
 
 function exportAllPDFs() {
@@ -674,21 +734,23 @@ const payload = buildPayload();
 try {
 localStorage.setItem(‘cvstudio_v2’, JSON.stringify({…payload, photo:null, archives:state.archives.map(a=>({…a,photo:null}))}));
 } catch(e) {}
-// Cloud save via server proxy
+// Cloud save via JSONBin
+const JKEY = getJsonBinKey();
+const JURL = ‘https://api.jsonbin.io/v3/b’;
 try {
 if (!binId) {
-const res = await fetch(’/api/storage’, {
+const res = await fetch(JURL, {
 method: ‘POST’,
-headers: { ‘Content-Type’: ‘application/json’ },
+headers: {‘Content-Type’:‘application/json’,‘X-Master-Key’:JKEY,‘X-Bin-Name’:‘CVStudio’,‘X-Bin-Private’:‘true’},
 body: JSON.stringify(payload)
 });
 const data = await res.json();
 binId = data.metadata?.id;
 if (binId) localStorage.setItem(‘cvstudio_binid’, binId);
 } else {
-await fetch(`/api/storage?binId=${binId}`, {
+await fetch(`${JURL}/${binId}`, {
 method: ‘PUT’,
-headers: { ‘Content-Type’: ‘application/json’ },
+headers: {‘Content-Type’:‘application/json’,‘X-Master-Key’:JKEY},
 body: JSON.stringify(payload)
 });
 }
@@ -702,8 +764,9 @@ console.warn(‘Cloud sync failed:’, e);
 async function loadFromStorage() {
 setStatus(‘Loading…’, false);
 if (binId) {
+const JKEY2 = getJsonBinKey();
 try {
-const res = await fetch(`/api/storage?binId=${binId}`, { method: ‘GET’ });
+const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, { headers: {‘X-Master-Key’:JKEY2} });
 const data = await res.json();
 if (data.record) {
 applyData(data.record);
@@ -758,7 +821,35 @@ document.getElementById(‘lastSaved’).textContent = ‘Auto-saved’;
 }, 1500);
 }
 });
+
+// ── Key setup
+function showSetup() {
+document.getElementById(‘setupOverlay’).classList.add(‘show’);
+}
+function saveKeys() {
+const ak = document.getElementById(‘setupAnthropicKey’).value.trim();
+const jk = document.getElementById(‘setupJsonBinKey’).value.trim();
+if (!ak || !jk) { alert(‘Please enter both keys.’); return; }
+localStorage.setItem(‘cvstudio_anthropic_key’, ak);
+localStorage.setItem(‘cvstudio_jsonbin_key’, jk);
+document.getElementById(‘setupOverlay’).classList.remove(‘show’);
+loadFromStorage();
+}
 </script>
 
+<!-- SETUP MODAL -->
+
+<div class="setup-overlay" id="setupOverlay">
+  <div class="setup-box">
+    <div class="setup-title">Welcome to CV Studio</div>
+    <div class="setup-sub">Enter your API keys once — they're stored only in your browser, never on any server.</div>
+    <div class="setup-label">Anthropic API Key</div>
+    <input class="setup-input" id="setupAnthropicKey" type="password" placeholder="sk-ant-api03-..." />
+    <div class="setup-label">JSONBin Master Key</div>
+    <input class="setup-input" id="setupJsonBinKey" type="password" placeholder="$2a$10$..." />
+    <button class="setup-save" onclick="saveKeys()">Save & Start</button>
+    <div class="setup-note">Keys are saved in your browser's localStorage.<br>You'll need to enter them once per device.</div>
+  </div>
+</div>
 </body>
 </html>
